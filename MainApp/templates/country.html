@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{country_db}}</h1>
+<br>
+Список языков:
+<ol>
+    {% for languages_by_country_one in languages_by_country %}
+    <li>
+       {{languages_by_country_one.name_language}}
+    </li>
+    {% endfor %}
+</ol>
+<br>
+{% endblock %}
+

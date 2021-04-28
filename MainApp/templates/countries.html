@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+Список всех стран:
+<ol>
+    {% for country in countries %}
+    <li>
+        <a href="{% url 'country-page' country.name%}">{{country.name}}</a>
+    </li>
+    {% endfor %}
+</ol>
+
+<br>
+{% endblock %}

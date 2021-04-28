@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{page_title}}</title>
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% endblock %}
+</head>
+<body>
+<header>
+    <a {% if page_title == 'Home' %}class="current" {% endif %} href="{% url 'home-page' %}">Домой</a>/
+    <a {% if page_title == 'Countries' %}class="current" {% endif %} href="{% url 'country-list-page' %}">Список стран</a>/
+    {% if page == 'Country' %}
+        <a href="{% url 'country-page' country_db %}" class="current">{{country_db}}</a> /
+    {% endif %}
+    <a {% if page_title == 'Languages' %}class="current" {% endif %} href="{% url 'languages-page' %}">Языки</a>
+    {% if page == 'Language' %} /
+        <a href="{% url 'countries_by_language-page' language %}" class="current">{{language}}</a>
+    {% endif %}
+</header>
+<main>
+    {% block content %}
+    Добро пожаловать на сайт.
+    {% endblock %}
+</main>
+{% include 'inc/inc-footer.html' %}
+</body>
+</html>

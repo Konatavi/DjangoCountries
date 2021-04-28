@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+Список стран, где говорят на языке: {{language}}
+<br>
+<ol>
+    {% for link_country in countries_list_by_language %}
+    <li>
+       {{link_country.name_country}}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
+
